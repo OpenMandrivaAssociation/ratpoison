@@ -1,5 +1,5 @@
-%define	name	ratpoison 
-%define version 1.4.1
+%define	name	ratpoison
+%define version 1.4.2
 %define release %mkrel 1
 
 Name:		%{name}
@@ -7,7 +7,7 @@ Summary:	Ratpoison is a simple Window Manager largely modelled after Screen
 Group:		Graphical desktop/Other
 Version:	%{version}
 Release:	%{release}
-License:	GPL 
+License:	GPL
 URL:		http://ratpoison.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Packager:	Antoine Ginies <aginies@mandriva.com>
@@ -22,7 +22,7 @@ virtual terminal market. All interaction with the window manager is done
 through keystrokes. ratpoison has a prefix map to minimize the key
 clobbering that cripples EMACS and other quality pieces of software. All
 windows are maximized and kept maximized to avoid wasting precious
-screen space. 
+screen space.
 
 %prep
 %setup -q
@@ -55,7 +55,7 @@ EOF
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
-%post 
+%post
 %_install_info %{name}.info
 
 %postun
