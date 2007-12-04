@@ -12,7 +12,7 @@ URL:		http://ratpoison.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Packager:	Antoine Ginies <aginies@mandriva.com>
 Source0:	%{name}-%{version}.tar.bz2
-BuildRequires:	XFree86-devel readline-devel
+BuildRequires:	X11-devel readline-devel
 
 %description
 Ratpoison is a simple window manager with no large library dependencies,
