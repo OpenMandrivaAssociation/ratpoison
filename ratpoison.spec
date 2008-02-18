@@ -1,6 +1,6 @@
 %define	name	ratpoison
 %define version 1.4.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:		%{name}
 Summary:	Simple Window Manager largely modelled after Screen
