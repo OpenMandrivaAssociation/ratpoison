@@ -3,7 +3,7 @@
 %define release %mkrel 1
 
 Name:		%{name}
-Summary:	Ratpoison is a simple Window Manager largely modelled after Screen
+Summary:	Simple Window Manager largely modelled after Screen
 Group:		Graphical desktop/Other
 Version:	%{version}
 Release:	%{release}
