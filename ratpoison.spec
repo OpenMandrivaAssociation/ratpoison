@@ -1,6 +1,6 @@
 %define	name	ratpoison
-%define version 1.4.3
-%define release %mkrel 2
+%define version 1.4.5
+%define release %mkrel 1
 
 Name:		%{name}
 Summary:	Simple Window Manager largely modelled after Screen
@@ -11,7 +11,7 @@ License:	GPL
 URL:		http://ratpoison.sourceforge.net/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Packager:	Antoine Ginies <aginies@mandriva.com>
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://download.savannah.nongnu.org/releases/%{name}/%{name}-%{version}.tar.gz
 BuildRequires:	X11-devel readline-devel
 
 %description
