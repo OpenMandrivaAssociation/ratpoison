@@ -8,11 +8,15 @@ Group:		Graphical desktop/Other
 Version:	%{version}
 Release:	%{release}
 License:	GPL
-URL:		http://ratpoison.sourceforge.net/
+URL:		http://www.nongnu.org/ratpoison/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Packager:	Antoine Ginies <aginies@mandriva.com>
 Source0:	http://download.savannah.nongnu.org/releases/%{name}/%{name}-%{version}.tar.gz
-BuildRequires:	X11-devel readline-devel
+Patch0:		ratpoison-1.4.5-link.patch
+BuildRequires:	libx11-devel
+BuildRequires:	libxft-devel
+BuildRequires:	libxtst-devel
+BuildRequires:	libxinerama-devel
+BuildRequires:	readline-devel
 
 %description
 Ratpoison is a simple window manager with no large library dependencies,
@@ -26,14 +30,17 @@ screen space.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
-%configure
+export CFLAGS="%optflags -DHAVE_GETLINE"
+autoreconf -fi
+%configure2_5x
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 rm -rf %{buildroot}/usr/share/doc/%{name}
 
 # startfile
