@@ -9,13 +9,13 @@ Version:	%{version}
 Release:	%{release}
 License:	GPL
 URL:		http://www.nongnu.org/ratpoison/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source0:	http://download.savannah.nongnu.org/releases/%{name}/%{name}-%{version}.tar.gz
 Patch0:		ratpoison-1.4.5-link.patch
-BuildRequires:	libx11-devel
-BuildRequires:	libxft-devel
-BuildRequires:	libxtst-devel
-BuildRequires:	libxinerama-devel
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xi)
+BuildRequires:	pkgconfig(xft)
+BuildRequires:	pkgconfig(xtst)
+BuildRequires:	pkgconfig(xinerama)
 BuildRequires:	readline-devel
 
 %description
@@ -39,18 +39,17 @@ autoreconf -fi
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 rm -rf %{buildroot}/usr/share/doc/%{name}
 
 # startfile
-%{__cat} > $RPM_BUILD_ROOT%{_bindir}/start%{name} << EOF
+%{__cat} > %{buildroot}%{_bindir}/start%{name} << EOF
 exec %{_bindir}/%{name}
 EOF
 
 # session file
-%{__install} -d $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmsession.d
-%{__cat} > $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmsession.d/16%{name} << EOF
+%{__install} -d %{buildroot}%{_sysconfdir}/X11/wmsession.d
+%{__cat} > %{buildroot}%{_sysconfdir}/X11/wmsession.d/16%{name} << EOF
 NAME=%{name}
 EXEC=%{_bindir}/start%{name}
 DESC=%{name} window manager
@@ -59,9 +58,6 @@ exec %{_bindir}/start%{name}
 EOF
 
 
-%clean
-rm -rf ${RPM_BUILD_ROOT}
-
 %post
 %_install_info %{name}.info
 
@@ -69,7 +65,6 @@ rm -rf ${RPM_BUILD_ROOT}
 %_remove_install_info %{name}.info
 
 %files
-%defattr(-,root,root)
 %doc INSTALL README TODO doc/ipaq.ratpoisonrc doc/sample.ratpoisonrc AUTHORS COPYING contrib/genrpbindings contrib/split.sh NEWS
 %config(noreplace) %{_sysconfdir}/X11/wmsession.d/16%{name}
 %attr(644,root,root) %{_mandir}/man1/%{name}.1*
@@ -79,5 +74,3 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_bindir}/start%{name}
 %{_bindir}/%{name}
 %{_bindir}/rpws
-
-
