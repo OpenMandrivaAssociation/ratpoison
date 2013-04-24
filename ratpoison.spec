@@ -58,8 +58,6 @@ exec %{_bindir}/start%{name}
 EOF
 
 
-%post
-%_install_info %{name}.info
 
 %postun
 %_remove_install_info %{name}.info
