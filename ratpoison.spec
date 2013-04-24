@@ -59,8 +59,6 @@ EOF
 
 
 
-%postun
-%_remove_install_info %{name}.info
 
 %files
 %doc INSTALL README TODO doc/ipaq.ratpoisonrc doc/sample.ratpoisonrc AUTHORS COPYING contrib/genrpbindings contrib/split.sh NEWS
