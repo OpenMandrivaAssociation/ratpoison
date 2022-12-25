@@ -6,7 +6,7 @@ Name:		%{name}
 Summary:	Simple Window Manager largely modelled after Screen
 Group:		Graphical desktop/Other
 Version:	%{version}
-Release:	%{release}
+Release:	%{release}1
 License:	GPL
 URL:		http://www.nongnu.org/ratpoison/
 Source0:	http://download.savannah.nongnu.org/releases/%{name}/%{name}-%{version}.tar.gz
