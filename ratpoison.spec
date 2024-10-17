@@ -8,7 +8,7 @@ Group:		Graphical desktop/Other
 Version:	%{version}
 Release:	%{release}1
 License:	GPL
-URL:		http://www.nongnu.org/ratpoison/
+URL:		https://www.nongnu.org/ratpoison/
 Source0:	http://download.savannah.nongnu.org/releases/%{name}/%{name}-%{version}.tar.gz
 Patch0:		ratpoison-1.4.5-link.patch
 BuildRequires:	pkgconfig(x11)
