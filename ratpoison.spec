@@ -1,5 +1,5 @@
 %define	name	ratpoison
-%define version 1.4.5
+%define version 1.4.9
 %define release  4
 
 Name:		%{name}
@@ -9,8 +9,8 @@ Version:	%{version}
 Release:	%{release}1
 License:	GPL
 URL:		https://www.nongnu.org/ratpoison/
-Source0:	http://download.savannah.nongnu.org/releases/%{name}/%{name}-%{version}.tar.gz
-Patch0:		ratpoison-1.4.5-link.patch
+Source0:	https://download.savannah.nongnu.org/releases/%{name}/%{name}-%{version}.tar.gz
+Patch0:		ratpoison-1.4.9-link.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
@@ -35,7 +35,7 @@ screen space.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 export CFLAGS="%optflags -DHAVE_GETLINE"
